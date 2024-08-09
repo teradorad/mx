@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import shutil
-import sys
 from distutils.dir_util import copy_tree
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -94,7 +93,7 @@ def llvm_target(main_file_name: str, main_module: str, syntax_module: str) -> Ko
                 f"-I{plugin_dir / 'libff/include'}",
                 str(plugin_dir / 'plugin-c/crypto.cpp'),
                 str(plugin_dir / 'plugin-c/plugin_util.cpp'),
-            ] + (['-lprocps'] if sys.platform == 'linux' else [])
+            ]
 
 
     return KompileTarget(
